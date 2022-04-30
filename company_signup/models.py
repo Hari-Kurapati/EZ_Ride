@@ -11,11 +11,12 @@ class Ads_catagory(models.Model):
 class Advertisers(models.Model):
     company_name = models.CharField(max_length=255)
     company_phone = models.CharField(max_length=30)
-    company_email = models.CharField(max_length=50, unique=True)
+    company_email = models.CharField(max_length=50, unique=False)
     company_password = models.CharField(max_length=50)
     ad_price = models.IntegerField()
     # ad_name = models.ForeignKey(Ads_catagory, on_delete=models.CASCADE)
     ad_name = models.CharField(max_length=255)
+    deleted = models.IntegerField(unique=False)
 
     def __str__(self):
         return self.company_name

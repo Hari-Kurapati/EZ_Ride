@@ -61,8 +61,17 @@
                 <input class="p-2 w-[350px] rounded-sm" type="email" placeholder="Enter email address" name="email" required>
 
                 <input class="p-2 rounded-sm" type="password" placeholder="Enter password" name="password" required>
+                <script>
+                    info_encode(){
+                        var b = document.getElementById('email').value,
+                        url = 'http://127.0.0.1:8000/user_login/user_purchase_list/?email=' + encodeURIComponent(b);
 
-                <button class="bg-[#f0b001bb] p-2" type="submit">SIGN IN</button>
+                        document.location.href = url;
+                    }
+                    text = document.location.href
+                </script>
+                <button class="bg-[#f0b001bb] p-2" type="submit" >SIGN IN</button>
+                <!--<a class="p-2 rounded-sm bg-[#f0b001bb] hover:text-black" href="user_purchase_list/?{{email}}?{{password}}">SIGN IN</a>-->
                 <span class="text-white">New here? <a class="underline" href="{% url 'user_signup' %}">Create An Account</a></span>
             </form>
         </div>

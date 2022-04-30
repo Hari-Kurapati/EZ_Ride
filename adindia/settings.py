@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'user_login',
     'user_signup',
     'company_signup',
-    'company_signin'
+    'company_signin',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -79,6 +80,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'adindia.wsgi.application'
 
+ASGI_APPLICATION = "adindia.asgi.application"
+
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
@@ -88,7 +91,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'adindia',
         'USER': 'root',
-        'PASSWORD': 'R@kib3277',
+        'PASSWORD': 'Pooji5Chet@n',
         'HOST': 'localhost',
         'PORT': '3306',
     }

@@ -18,10 +18,20 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'output.css' %}">
     <!-- <link rel="stylesheet" href="../dist/output.css"> -->
-
+    <script
+        src="https://code.jquery.com/jquery-git.js">
+    </script>
 
     <title>Ad India | Sign In As A Buyer</title>
 </head>
+
+<style>
+.space {
+  width: 100px;
+  height: auto;
+  display: inline-block;
+}
+</style>
 
 <body class="h-[100vh] flex justify-center">
     <div class="flex flex-col justify-between h-full w-[90%]">
@@ -30,47 +40,23 @@
                 <img class="w-[100%]" src="{% static 'img/logo.png' %}"></a>
             <!-- <img class="w-[100%]" src="../img/logo.png"></a> -->
             <ul class="flex gap-x-5 uppercase text-[13px] tracking-[2px]">
-                <li class="p-2 rounded-sm bg-[#f0b001bb] text-black">{{company_name}}</li>
+
+                <li class="p-2 rounded-sm bg-[#f0b001bb] text-black">{{user_name}}</li>
             </ul>
+
         </nav>
 
-        <div class="flex items-center justify-around">
+        <div style="color:white;font-size:40px;" class="flex items-center justify-around">
 
-            <table class="container table table-dark table-sm">
-                <thead>
-                    <tr>
-                        <!--th>Name</th>
-                        <th>Email</th>
-                        <th>Phone</th-->
-                        <th>Ad Category</th>
-                        <th>Price</th>
-                        <th>Rating</th>
-                        <th>User Name</th>
-                        <th>User Email</th>
-                        <th>Delete Ad</th>
-                    </tr>
-                </thead>
-                <tbody>
-                {% for company in companies %}
-                    <tr>
-                        <!--td>{{company.company_name}}</td>
-                        <td>{{company.company_email}}</td>
-                        <td>{{company.company_phone}}</td-->
-                        <td>{{company.ad_name}}</td>
-                        <td>{{company.ad_price}}</td>
-                        {% if company.rating == "-1.0"  %}
-                        <td>N/A</td>
-                        {% else %}
-                        <td>{{company.rating}}</td>
-                        {% endif %}
-                        <td>{{company.user_name}}</td>
-                        <td>{{company.user_email}}</td>
-                        <td><a class="btn btn-danger" href="{% url 'delete_ad' %}?id={{forloop.counter0}}&email={{email}}&password={{password}}&user={{company.user_name}}">Delete Ad</a></td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
+            <b>Sorry, this ad is sold, please check our other Ads</b>
+            <b>Redirecting back to shop...</b>
+
         </div>
+        <script>
+        setTimeout(function() {
+            window.location.href = "{% url 'shop' %}?email={{user_email}}&password={{user_pass}}" // Do something after 5 seconds
+        }, 5000);
+        </script>
 
         <footer class="flex justify-between">
             <p class="text-[12px]">&copy; AdIndia Ltd. 2022</p>
@@ -86,14 +72,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
-<script>
-    if({{delete_error}}==1){
-        alert("The ad will be deleted as soon as it is released by the user");
-        setTimeout(function() {
-            window.location.href = "{% url 'company_ads_list' %}?email={{email}}&password={{password}}" // Do something after 5 seconds
-        }, 100);
-    }
-</script>
+
 </body>
 
 </html>

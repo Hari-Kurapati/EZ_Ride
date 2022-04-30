@@ -23,6 +23,14 @@
     <title>Ad India | Sign In As A Buyer</title>
 </head>
 
+<style>
+.space {
+  width: 100px;
+  height: auto;
+  display: inline-block;
+}
+</style>
+
 <body class="h-[100vh] flex justify-center">
     <div class="flex flex-col justify-between h-full w-[90%]">
         <nav class="flex items-center justify-between">
@@ -36,6 +44,33 @@
 
         </nav>
 
+        <form method="post" action="#" id="sorting_form" class="flex items-center justify-around">
+        {% csrf_token %}
+        <div class="flex items-center justify-around">
+            <select style="color:black;float:left" name="sort_by" class="p-2 rounded-sm" >
+                <option  value = "id">-- Sort By --</option>
+                <option style="color:black;" value = "company_name">Company Name</option>
+                <option style="color:black;" value = "ad_name">Ad Category</option>
+                <option style="color:black;" value = "ad_price">Price</option>
+                <option style="color:black;" value = "rating">Rating</option>
+            </select>
+
+            <div class="space">
+            </div>
+
+            <select style="color:black;float:right" name="sort_order" class="p-2 rounded-sm" >
+                <option  value = "asc">-- Sort Order --</option>
+                <option style="color:black;" value = "asc">Ascending</option>
+                <option style="color:black;" value = "desc">Descending</option>
+            </select>
+
+            <div class="space">
+            </div>
+
+            <button style="height:40px;width:121px;float:right" type="submit" class="p-2 rounded-sm bg-[#f0b001bb] text-black" >Apply Sort</button>
+        </div>
+        </form>
+
         <div class="flex items-center justify-around">
 
             <table class="container table table-dark table-sm">
@@ -44,46 +79,28 @@
                         <th>Company Name</th>
                         <th>Ad Category</th>
                         <th>Price</th>
-                        <th>Company Email</th>
                         <th>Rating</th>
-                        <th>End Purchase</th>
+                        <th>Company Email</th>
+                        <th>Company Phone</th>
+                        <th>Purchase</th>
                     </tr>
                 </thead>
                 <tbody>
-                <form method="post" action="#" id="rating_update_form" class="flex items-center justify-around">
-                    {% csrf_token %}
-                    {% with i="0" %}
-                {% for purchase in user_purchases %}
+                {% for item in shop_list %}
                     <tr>
-                        <td>{{purchase.company_name}}</td>
-                        <td>{{purchase.ad_name}}</td>
-                        <td>{{purchase.ad_price}}</td>
-                        <td>{{purchase.company_email}}</td>
-
-                        <td><select style="color:black;" name="test{{forloop.counter0}}" class="p-2 rounded-sm" >
-                            {% if purchase.rating == null %}
-                                <option  value = NULL>-- Rating --</option>
-                            {% else %}
-                                <option style="color:white;"  value = {{purchase.rating}}>{{purchase.rating}}</option>
-                            {% endif %}
-                            <option style="color:black;" value = 0>0</option>
-                            <option style="color:black;" value = 1>1</option>
-                            <option style="color:black;" value = 2>2</option>
-                            <option style="color:black;" value = 3>3</option>
-                            <option style="color:black;" value = 4>4</option>
-                            <option style="color:black;" value = 5>5</option>
-                            <option style="color:black;" value = 6>6</option>
-                            <option style="color:black;" value = 7>7</option>
-                            <option style="color:black;" value = 8>8</option>
-                            <option style="color:black;" value = 9>9</option>
-                            <option style="color:black;" value = 10>10</option>
-                            </select>
-                        </td>
-                        <td><a class="btn btn-danger" href="{% url 'user_purchase_delete' %}?id={{forloop.counter0}}&email={{user_email}}&password={{user_pass}}">End Purchase</a></td>
+                        <td>{{item.company_name}}</td>
+                        <td>{{item.ad_name}}</td>
+                        <td>{{item.ad_price}}</td>
+                        {% if item.rating == "-1.0"  %}
+                        <td>N/A</td>
+                        {% else %}
+                        <td>{{item.rating}}</td>
+                        {% endif %}
+                        <td>{{item.company_email}}</td>
+                        <td>{{item.company_phone}}</td>
+                        <td><a class="btn btn-success" href="{% url 'purchase_from_shop' %}?compn={{item.company_name}}&adn={{item.ad_name}}&adp={{item.ad_price}}&email={{user_email}}&name={{user_name}}&password={{user_pass}}">Purchase Ad</a></td>
                     </tr>
                 {% endfor %}
-                    {% endwith %}
-
                 </tbody>
             </table>
         </div>
@@ -105,8 +122,8 @@
                 }
         </script>
         <div>
-        <button style="height:40px;width:121px" type="submit" class="btn btn-success" >Save Rating</button>
-        <a style="height:40px;width:121px;float:right" class="p-2 rounded-sm bg-[#f0b001bb] text-black" href="{% url 'shop' %}?email={{user_email}}&password={{user_pass}}">Purchase Ad</a>
+        <!--<button style="height:40px;width:121px" type="submit" class="btn btn-success" >Save Rating</button>-->
+        <a style="height:40px;width:140px;float:right" class="p-2 rounded-sm bg-[#f0b001bb] text-black" href="{% url 'user_purchase_list' %}?email={{user_email}}&password={{user_pass}}">Purchased Ads</a>
         </div>
         </form>
 
