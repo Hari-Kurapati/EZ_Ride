@@ -223,15 +223,6 @@ def add_stop(request):
 
 #def add_stop_loc(request,lat1,long1,email,passw,user,detail,stop_category):
 def add_stop_loc(request, lat1, long1):
-    print("hello add_stop_loc")
-    print("hello add_stop_loc")
-    print("hello add_stop_loc")
-    print("hello add_stop_loc")
-    print("hello add_stop_loc")
-    print("hello add_stop_loc")
-    print("hello add_stop_loc")
-    print("hello add_stop_loc")
-    print("hello add_stop_loc")
 
     '''email = request.GET.get('email')
     passw = request.GET.get('password')
