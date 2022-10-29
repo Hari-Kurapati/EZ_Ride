@@ -48,6 +48,8 @@
 
 
 </head>
+
+
 <body class="h-[100vh] flex justify-center">
     <div class="flex flex-col justify-between h-full w-[90%]">
         <nav class="flex items-center justify-between">
@@ -56,7 +58,7 @@
             <!-- <img class="w-[100%]" src="../img/logo.png"></a> -->
             <ul class="flex gap-x-5 uppercase text-[13px] tracking-[2px]">
 
-                <li class="p-2 rounded-sm bg-[#f0b001bb] text-black">{{user_name}}</li>
+                <li class="p-2 rounded-sm bg-[#f0b001bb] text-black">{{company_name}}</li>
             </ul>
 
         </nav>
@@ -64,8 +66,8 @@
         <div>
         <!--<div class="flex items-center justify-around"> -->
         <div>
-            <p class="mb-5 text-[45px] uppercase leading-none"><br>Select Your Journey</p>
-            <p>Click on your initial location and then destination<br><br> </p>
+            <p class="mb-5 text-[45px] uppercase leading-none"><br>Set Stop Location</p>
+            <p>Click on the exact location of the stop<br><br> </p>
         </div>
 
         <div id="map" style="width: 1200px; height: 600px; position: relative; outline: none;"></div>
@@ -81,6 +83,7 @@
             </div>
         </footer>
     </div>
+
 <script>
   var map = L.map('map').setView([13.010904868184948, 74.7941789966664], 15);
   data={};
@@ -97,8 +100,8 @@
       k=count.toString()
       data[k+'lat']=res.latlng['lat'];
       data[k+'lon']=res.latlng['lng'];
-      if(count==2){
-        const route_url='http://localhost:8000/1/'+data['1lat']+','+data['1lon']+','+data['2lat']+','+data['2lon'];
+      if(count==1){
+        const route_url='http://localhost:8000/2/'+data['1lat']+','+data['1lon'];
         count=0;
         window.location.replace(route_url);
       }

@@ -18,7 +18,8 @@ class Advertisers(models.Model):
     ad_name = models.CharField(max_length=255)
     deleted = models.IntegerField(unique=False)
     address = models.CharField(max_length=1023, null=True, unique=False)
-    long_lat = models.CharField(max_length=255, null=True)
+    latitude = models.CharField(max_length=255, null=True)
+    longitude = models.CharField(max_length=255, null=True)
     type = models.CharField(max_length=50, null=True)
 
     def __str__(self):

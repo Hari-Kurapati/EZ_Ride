@@ -144,6 +144,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_cdn')
 
 GOOGLE_API_KEY = "AIzaSyBRoGmaGpgps8APyG8KhqPVgi2LtNgEduE"
 
+email1 = ""
+passw1 = ""
+user1 = ""
+detail1 = ""
+stop_category1 = ""
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
