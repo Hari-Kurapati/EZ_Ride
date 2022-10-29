@@ -1,0 +1,16 @@
+python manage.py runserver
+-creates the server and allows app to run
+
+python manage.py startapp AppName
+-creates a new app, basically allowing new urls and stuff
+-also add the app name in settings.py INSTALLED_APPS part
+
+python manage.py makemigrations
+-creates the sqlite database for the app, but need to add path of class in apps.py of the products folder in the settings.py INSTALLED_APPS part of the main folder
+
+python manage.py migrate
+-cretes the tables for the sqlite database thingy we did in the previous command
+
+python manage.py createsuperuser
+-create the first admin user for the default admin page that comes with django
+

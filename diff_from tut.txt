@@ -1,0 +1,14 @@
+-did not create main.urls file at 32:00 cuz we use normal urls itself for same purpose
+
+This is where the maps stuff starts for backend:
+https://youtu.be/_vCT42vDfgw?t=4062
+
+This is where the maps stuff starts for frontend:
+https://youtu.be/_vCT42vDfgw?t=5869
+
+This is where javascript starts for maps:
+https://youtu.be/_vCT42vDfgw?t=7045
+
+
+He said we need to enable something in the api idk:
+https://youtu.be/_vCT42vDfgw?t=8123

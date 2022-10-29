@@ -20,14 +20,14 @@
     <!-- <link rel="stylesheet" href="../dist/output.css"> -->
 
 
-    <title>Ad India | Sign In As A Buyer</title>
+    <title>EZ Ride | Transport made easy</title>
 </head>
 
 <body class="h-[100vh] flex justify-center">
     <div class="flex flex-col justify-between h-full w-[90%]">
         <nav class="flex items-center justify-between">
             <a class="w-[15%]" href="{% url 'home' %}">
-                <img class="w-[100%]" src="{% static 'img/logo.png' %}"></a>
+                <img class="w-[100%]" src="{% static 'img/logo_n.png' %}"></a>
             <!-- <img class="w-[100%]" src="../img/logo.png"></a> -->
             <ul class="flex gap-x-5 uppercase text-[13px] tracking-[2px]">
 
@@ -41,12 +41,11 @@
             <table class="container table table-dark table-sm">
                 <thead>
                     <tr>
-                        <th>Company Name</th>
-                        <th>Ad Category</th>
+                        <th>Location</th>
+                        <th>Date</th>
                         <th>Price</th>
-                        <th>Company Email</th>
-                        <th>Rating</th>
-                        <th>End Purchase</th>
+                        <th>Contact Email</th>
+                        <th>Complaint</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -60,6 +59,7 @@
                         <td>{{purchase.ad_price}}</td>
                         <td>{{purchase.company_email}}</td>
 
+<!--
                         <td><select style="color:black;" name="test{{forloop.counter0}}" class="p-2 rounded-sm" >
                             {% if purchase.rating == null %}
                                 <option  value = NULL>-- Rating --</option>
@@ -79,7 +79,9 @@
                             <option style="color:black;" value = 10>10</option>
                             </select>
                         </td>
-                        <td><a class="btn btn-danger" href="{% url 'user_purchase_delete' %}?id={{forloop.counter0}}&email={{user_email}}&password={{user_pass}}">End Purchase</a></td>
+-->
+                        <!--   <td><a class="btn btn-danger" href="{% url 'user_purchase_delete' %}?id={{forloop.counter0}}&email={{user_email}}&password={{user_pass}}">End Purchase</a></td>  -->
+                        <td><a class="btn btn-danger" href="#">Complaint</a></td>
                     </tr>
                 {% endfor %}
                     {% endwith %}
@@ -105,13 +107,15 @@
                 }
         </script>
         <div>
+<!--
         <button style="height:40px;width:121px" type="submit" class="btn btn-success" >Save Rating</button>
-        <a style="height:40px;width:121px;float:right" class="p-2 rounded-sm bg-[#f0b001bb] text-black" href="{% url 'shop' %}?email={{user_email}}&password={{user_pass}}">Purchase Ad</a>
+        <a style="height:40px;width:121px;float:right" class="p-2 rounded-sm bg-[#f0b001bb] text-black" href="{% url 'shop' %}?email={{user_email}}&password={{user_pass}}">Purchase Ad</a>   -->
+        <a style="height:40px;width:100px;float:right" class="p-2 rounded-sm bg-[#f0b001bb] text-black" href="{% url 'showmap' %}?email={{user_email}}&password={{user_pass}}&user_name={{user_name}}">Get a Ride</a>
         </div>
         </form>
 
         <footer class="flex justify-between">
-            <p class="text-[12px]">&copy; AdIndia Ltd. 2022</p>
+            <p class="text-[12px]">&copy; EZRide Ltd. 2022</p>
             <div class="flex gap-x-7">
                 <a href="#"><i class="ri-twitter-fill hover:text-[#F0AF01]"></i></a>
                 <a href="#"><i class="ri-linkedin-fill hover:text-[#F0AF01]"></i></a>

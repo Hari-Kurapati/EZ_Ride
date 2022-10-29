@@ -20,14 +20,14 @@
     <!-- <link rel="stylesheet" href="../dist/output.css"> -->
 
 
-    <title>Ad India | Sign In As A Buyer</title>
+    <title>EZ Ride | Transport made easy</title>
 </head>
 
 <body class="h-[100vh] flex justify-center">
     <div class="flex flex-col justify-between h-full w-[90%]">
         <nav class="flex items-center justify-between">
             <a class="w-[15%]" href="{% url 'home' %}">
-                <img class="w-[100%]" src="{% static 'img/logo.png' %}"></a>
+                <img class="w-[100%]" src="{% static 'img/logo_n.png' %}"></a>
             <!-- <img class="w-[100%]" src="../img/logo.png"></a> -->
             <ul class="flex gap-x-5 uppercase text-[13px] tracking-[2px]">
                 <li class="p-2 rounded-sm bg-[#f0b001bb] text-black">{{company_name}}</li>
@@ -42,12 +42,12 @@
                         <!--th>Name</th>
                         <th>Email</th>
                         <th>Phone</th-->
-                        <th>Ad Category</th>
-                        <th>Price</th>
-                        <th>Rating</th>
+                        <th>Location</th>
+                        <th>Last Serviced</th>
+                        <!--<th>Rating</th>
                         <th>User Name</th>
-                        <th>User Email</th>
-                        <th>Delete Ad</th>
+                        <th>User Email</th>-->
+                        <th>Remove Stop</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -58,22 +58,28 @@
                         <td>{{company.company_phone}}</td-->
                         <td>{{company.ad_name}}</td>
                         <td>{{company.ad_price}}</td>
+                        <!--
                         {% if company.rating == "-1.0"  %}
                         <td>N/A</td>
                         {% else %}
                         <td>{{company.rating}}</td>
                         {% endif %}
                         <td>{{company.user_name}}</td>
-                        <td>{{company.user_email}}</td>
-                        <td><a class="btn btn-danger" href="{% url 'delete_ad' %}?id={{forloop.counter0}}&email={{email}}&password={{password}}&user={{company.user_name}}">Delete Ad</a></td>
+                        <td>{{company.user_email}}</td>  -->
+                        <td><a class="btn btn-danger" href="{% url 'delete_ad' %}?id={{forloop.counter0}}&email={{email}}&password={{password}}&user={{company_name}}">Remove Stop</a></td>
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
+
+        </div>
+
+        <div>
+        <a style="height:40px;width:100px;float:right" class="p-2 rounded-sm bg-[#f0b001bb] text-black" href="{% url 'add_stop' %}?email={{email}}&password={{password}}&user={{company_name}}">Add a Stop</a>
         </div>
 
         <footer class="flex justify-between">
-            <p class="text-[12px]">&copy; AdIndia Ltd. 2022</p>
+            <p class="text-[12px]">&copy; EZRide Ltd. 2022</p>
             <div class="flex gap-x-7">
                 <a href="#"><i class="ri-twitter-fill hover:text-[#F0AF01]"></i></a>
                 <a href="#"><i class="ri-linkedin-fill hover:text-[#F0AF01]"></i></a>

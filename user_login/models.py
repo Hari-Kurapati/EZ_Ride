@@ -12,3 +12,6 @@ class User_Purchase_List(models.Model):
     purchase_date  = models.DateField(unique=False)
     rating = models.IntegerField(null = True, unique=False)
     active = models.IntegerField(unique=False)
+    complaint = models.CharField(max_length=1023, null = True, unique=False)
+    response = models.CharField(max_length=1023, null=True, unique=False)
+    address = models.CharField(max_length=1023, null=True, unique=False)

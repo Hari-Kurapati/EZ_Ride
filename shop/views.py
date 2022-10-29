@@ -10,8 +10,8 @@ from urllib.parse import urlencode
 def shop(request):
     user_email = request.GET.get('email')
     user_pass = request.GET.get('password')
-    q = f"select company_signup_advertisers.id, company_signup_advertisers.company_name, company_signup_advertisers.company_phone, company_signup_advertisers.company_email, company_signup_advertisers.ad_price, company_signup_advertisers.ad_name" \
-        f" from company_signup_advertisers left join (select company_name, company_phone, company_email, ad_name, ad_price, sum(active) as active from user_login_user_purchase_list group by company_name, company_phone, company_email, ad_name, ad_price) as T " \
+    q = f"select company_signup_advertisers.id, company_signup_advertisers.company_name, company_signup_advertisers.company_phone, company_signup_advertisers.company_email, company_signup_advertisers.ad_price, company_signup_advertisers.ad_name, rating" \
+        f" from company_signup_advertisers left join (select company_name, company_phone, company_email, ad_name, ad_price, sum(active) as active,avg(rating) as rating from user_login_user_purchase_list group by company_name, company_phone, company_email, ad_name, ad_price) as T " \
         f"on ((company_signup_advertisers.company_name=T.company_name) and (company_signup_advertisers.ad_name=T.ad_name) and (company_signup_advertisers.ad_price=T.ad_price))" \
         f"where T.ad_name IS NULL or (T.active = '0' or T.active IS NULL)"
     if request.method == "POST":
@@ -62,7 +62,13 @@ def purchase_from_shop(request):
     user_pass = request.GET.get('password')
     q = f"select * from company_signup_advertisers where company_name='{company_name}' and ad_name='{ad_name}' and ad_price='{ad_price}'"
     item = Advertisers.objects.raw(q)
-    item = item[0]
+    try:
+        item = item[0]
+    except:
+        base_url = "http://127.0.0.1:8000/user_login/shop/not_available"
+        query_string = urlencode({'email': user_email, 'password': user_pass})
+        url = '{}?{}'.format(base_url, query_string)
+        return HttpResponseRedirect(url)
 
     check_query = f"select * from user_login_user_purchase_list where company_name='{company_name}' and ad_name='{ad_name}' and ad_price='{ad_price}' and active = '1'"
     check_item = User_Purchase_List.objects.raw(check_query)
@@ -79,8 +85,8 @@ def purchase_from_shop(request):
 
     if t==():
         obj = User_Purchase_List(company_name=item.company_name, company_phone=item.company_phone, company_email=item.company_email,
-                                 ad_price=item.ad_price,ad_name=item.ad_name,purchase_date='2002-05-17',user_name=user_name,
-                                 user_email=user_email,active=1)
+                                 ad_price=item.ad_price, ad_name=item.ad_name, purchase_date='2002-05-17', user_name=user_name,
+                                 user_email=user_email, active=1)
         obj.save()
     else:
         search_id = check_item[0].id

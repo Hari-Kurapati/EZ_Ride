@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{% static 'output.css' %}">
 
 
-    <title>Ad India | Sign In As A Buyer</title>
+    <title>EZ Ride | Transport made easy</title>
 </head>
 
 <body class="h-[100vh] flex justify-center">
@@ -23,23 +23,23 @@
             <div class="flex gap-x-4 justify-end text-[12px] pt-1">
                 <div class="flex items-center gap-x-1">
                     <i class="ri-phone-fill"></i>
-                    <p>(+91) 9535272001</p>
+                    <p>(+91) 9901356045</p>
                 </div>
                 <div class="flex items-center gap-x-1">
                     <i class="ri-mail-fill"></i>
-                    <p>contact@adindia.com</p>
+                    <p>contact@ezride.com</p>
                 </div>
             </div>
 
             <div class="flex items-center justify-between">
                 <a class="w-[15%]" href="{% url 'home' %}">
-                    <img class="w-[100%]" src="{% static 'img/logo.png' %}"></a>
+                    <img class="w-[100%]" src="{% static 'img/logo_n.png' %}"></a>
                 <ul class="flex gap-x-5 uppercase text-[13px] tracking-[2px]">
                     <li>
-                        <a class="p-2 rounded-sm hover:bg-[#f0b001bb] hover:text-black " href="{% url 'company_signup' %}">Become A seller</a>
+                        <a class="p-2 rounded-sm hover:bg-[#f0b001bb] hover:text-black " href="{% url 'company_signup' %}">branch admin</a>
                     </li>
                     <li>
-                        <a class="p-2 rounded-sm bg-[#f0b001bb] text-black" href="{% url 'user_signup' %}">hire a seller</a>
+                        <a class="p-2 rounded-sm bg-[#f0b001bb] text-black" href="{% url 'user_signup' %}">user account</a>
                     </li>
                     <li>
                         <a class="p-2 rounded-sm hover:bg-[#f0b001bb] hover:text-black" href="#">Contact</a>
@@ -53,8 +53,8 @@
 
         <div class="flex items-center justify-around">
             <div>
-                <p class="mb-5 text-[45px] uppercase leading-none">Sign In As A Buyer</p>
-                <p>Sign in to manage your profile</p>
+                <p class="mb-5 text-[45px] uppercase leading-none">Sign In To Your Account</p>
+                <p>Sign in to begin your ride</p>
             </div>
             <form action="#" method="post" class="flex flex-col gap-y-3 bg-[#f0b00127] px-7 py-10 rounded-sm text-black">
                 {% csrf_token %}
@@ -77,7 +77,7 @@
         </div>
 
         <footer class="flex justify-between">
-            <p class="text-[12px]">&copy; AdIndia Ltd. 2022</p>
+            <p class="text-[12px]">&copy; EZRide Ltd. 2022</p>
             <div class="flex gap-x-7">
                 <a href="#"><i class="ri-twitter-fill hover:text-[#F0AF01]"></i></a>
                 <a href="#"><i class="ri-linkedin-fill hover:text-[#F0AF01]"></i></a>

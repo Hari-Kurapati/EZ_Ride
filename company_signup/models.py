@@ -17,6 +17,10 @@ class Advertisers(models.Model):
     # ad_name = models.ForeignKey(Ads_catagory, on_delete=models.CASCADE)
     ad_name = models.CharField(max_length=255)
     deleted = models.IntegerField(unique=False)
+    address = models.CharField(max_length=1023, null=True, unique=False)
+    long_lat = models.CharField(max_length=255, null=True)
+    type = models.CharField(max_length=50, null=True)
 
     def __str__(self):
         return self.company_name
+

@@ -3,19 +3,13 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- Remix ICON -->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'output.css' %}">
     <!-- <link rel="stylesheet" href="../dist/output.css"> -->
 
 
-    <title>Ad India | Sign Up as a Seller</title>
+    <title>EZ Ride | Transport made easy</title>
 </head>
 
 <body class="h-[100vh] flex justify-center">
@@ -24,27 +18,32 @@
             <div class="flex gap-x-4 justify-end text-[12px] pt-1">
                 <div class="flex items-center gap-x-1">
                     <i class="ri-phone-fill"></i>
-                    <p>(+91) 9535272001</p>
+                    <p>(+91) 9901356045</p><meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Remix ICON -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
+
                 </div>
                 <div class="flex items-center gap-x-1">
                     <i class="ri-mail-fill"></i>
-                    <p>contact@adindia.com</p>
+                    <p>contact@ezride.com</p>
                 </div>
             </div>
 
             <div class="flex items-center justify-between">
                 <a class="w-[15%]" href="{% url 'home' %}">
-                    <img class="w-[100%]" src="{% static './img/logo.png' %}">
+                    <img class="w-[100%]" src="{% static './img/logo_n.png' %}">
                     <!-- <img class="w-[100%]" src="../img/logo.png"> -->
                 </a>
                 <ul class="flex gap-x-5 uppercase text-[13px] tracking-[2px]">
                     <li>
-                        <a class="p-2 rounded-sm bg-[#f0b001bb] text-black" href="{% url 'company_signup' %}">Become A
-                            seller</a>
+                        <a class="p-2 rounded-sm bg-[#f0b001bb] text-black" href="{% url 'company_signup' %}">branch admin</a>
                     </li>
                     <li>
                         <a class="p-2 rounded-sm hover:bg-[#f0b001bb] hover:text-black"
-                            href="{% url 'user_signup' %}">hire a seller</a>
+                            href="{% url 'user_signup' %}">user account</a>
                     </li>
                     <li>
                         <a class="p-2 rounded-sm hover:bg-[#f0b001bb] hover:text-black" href="#">Contact</a>
@@ -60,26 +59,26 @@
             {% csrf_token %}
 
             <div>
-                <p class="mb-5 text-[45px] uppercase leading-none">Join As a Seller</p>
-                <p>Reach million of possible buyers with us</p>
+                <p class="mb-5 text-[45px] uppercase leading-none">Join As an Admin</p>
+                <p>Taking customers far and wide</p>
             </div>
             <div class="flex flex-col gap-y-3 bg-[#f0b00127] px-7 py-10 rounded-sm text-black">
 
-                <input class="w-[350px] p-2 rounded-sm" type="text" placeholder="Enter Company Name" name="company_name"
+                <input class="w-[350px] p-2 rounded-sm" type="text" placeholder="Enter Branch Name" name="company_name"
                     required>
 
                 <input class="p-2 rounded-sm" type="email" placeholder="Enter email address" name="email" required>
 
                 <input class="p-2 rounded-sm" type="tel" placeholder="Enter phone number" name="phone" required>
 
-                <select name="ad_catagory" class="p-2 rounded-sm">
+ <!--               <select name="ad_catagory" class="p-2 rounded-sm">
                     <option selected disabled>-- Ad Category --</option>
                     {% for ad in Ads_catagory %}
                     <option value={{ad.ad_name}}>{{ad.ad_name}}</option>
                     {% endfor %}
                 </select>
 
-                <input class="p-2 rounded-sm" type="text" placeholder="Enter ad price" name="ad_price" required>
+                <input class="p-2 rounded-sm" type="text" placeholder="Enter ad price" name="ad_price" required>   -->
 
 
 
@@ -92,7 +91,7 @@
         </form>
 
         <footer class="flex justify-between">
-            <p class="text-[12px]">&copy; AdIndia Ltd. 2022</p>
+            <p class="text-[12px]">&copy; EZRide Ltd. 2022</p>
             <div class="flex gap-x-7">
                 <a href="#"><i class="ri-twitter-fill hover:text-[#F0AF01]"></i></a>
                 <a href="#"><i class="ri-linkedin-fill hover:text-[#F0AF01]"></i></a>
