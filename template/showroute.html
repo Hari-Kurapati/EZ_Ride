@@ -31,7 +31,14 @@
             </ul>
 
         </nav>
-        <div style="width: 800px; height: 550px; position: relative; outline: none;">
+        <div>
+            <div>
+            <p class="mb-5 text-[45px] uppercase leading-none text-white"><br>Here is Your Path</p>
+            <p class="mb-5 leading-none text-white">Follow the directions to reach your destination<br><br> </p>
+            </div>
+        <!--<div style="width: 800px; height: 550px; position: relative; outline: none;">-->
+        <div style="width: 1200px; height: 600px; position: relative; outline: none;">
+
         {% if map %}
 
         {{map.html.render|safe}}
@@ -40,18 +47,76 @@
         </script>
         {% endif %}
         </div>
+        </div>
+
+        <img src="{% static 'img/Map_Legend.png' %}" width="252" height="56.7" >
+        <br>
+        <br>
+        <div class="flex flex-col justify-between h-full w-[90%]">
+        <div class="flex flex-col justify-between h-full w-[90%]">
+        <div class="flex flex-col justify-between h-full w-[90%]">
+        <div class="flex flex-col justify-between h-full w-[90%]">
+        <div class="flex flex-col justify-between h-full w-[90%]">
+        <div class="flex flex-col justify-between h-full w-[90%]">
+        <table class="table text-white table-bordered caption-top">
+            <caption>Total Payment</caption>
+          <thead>
+            <tr>
+              <th scope="col"  class="col-sm-0">#</th>
+              <th scope="col"  class="col-sm-0">Type</th>
+              <th scope="col"  class="col-sm-0">Distance</th>
+              <th scope="col"  class="col-sm-0">Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Walking</td>
+              <td>{{walk_dist}}</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>E-Bike</td>
+              <td>{{ebike_dist}}</td>
+              <td>{{ebike_cost}}</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Bus</td>
+              <td>{{bus_dist}}</td>
+              <td>{{bus_cost}}</td>
+            </tr>
+            <tr>
+              <td colspan="3">Total</td>
+              <td>{{total_cost}}</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
 
         <div>
+<!--
+        <button style="height:40px;width:121px" type="submit" class="btn btn-success" >Save Rating</button>
+        <a style="height:40px;width:121px;float:right" class="p-2 rounded-sm bg-[#f0b001bb] text-black" href="{% url 'shop' %}?email={{user_email}}&password={{user_pass}}">Purchase Ad</a>   -->
+        <a style="height:40px;width:100px;float:left;text-white;" class="p-2 rounded-sm bg-[#f0b001bb] text-black" href="{% url 'user_purchase_list' %}?email={{user_email}}&password={{user_pass}}&user_name={{user_name}}">End Ride</a>
+        </div>
+
         <footer class="flex justify-between">
-            <p class="text-[12px]">&copy; EZRide Ltd. 2022</p>
-            <div class="flex gap-x-7">
+            <p class="text-[12px] text-white"><br>&copy; EZRide Ltd. 2022</p>
+            <div class="flex gap-x-7 text-white">
                 <a href="#"><i class="ri-twitter-fill hover:text-[#F0AF01]"></i></a>
                 <a href="#"><i class="ri-linkedin-fill hover:text-[#F0AF01]"></i></a>
                 <a href="#"><i class="ri-instagram-fill hover:text-[#F0AF01]"></i></a>
                 <a href="#"><i class="ri-facebook-fill hover:text-[#F0AF01]"></i></a>
             </div>
         </footer>
-        </div>
+
     </div>
 
 <!-- JavaScript Bundle with Popper -->

@@ -98,7 +98,7 @@
       data[k+'lat']=res.latlng['lat'];
       data[k+'lon']=res.latlng['lng'];
       if(count==2){
-        const route_url='http://localhost:8000/1/'+data['1lat']+','+data['1lon']+','+data['2lat']+','+data['2lon'];
+        const route_url='http://localhost:8000/1/'+data['1lat']+','+data['1lon']+','+data['2lat']+','+data['2lon']+"?email={{user_email}}&password={{user_pass}}&user_name={{user_name}}";
         count=0;
         window.location.replace(route_url);
       }
